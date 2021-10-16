@@ -1,11 +1,14 @@
 function init(){
-    state = "reset";
-    score = 0;
-    gameOver = false;
     var canvas = document.getElementById("mycan");
     $w=canvas.width=500;
     $h=canvas.height=500;
     pen = canvas.getContext('2d');
+    state = "reset";
+    hscore = Math.max(score,hscore);
+    pen.font = "30px roboto"
+    pen.fillText(hscore,50,50);
+    score = 0;
+    gameOver = false;
     window.addEventListener('keydown',keyPressed);
     $cs = 25;
     food = randomFood();
@@ -86,6 +89,7 @@ function init(){
             }
         }
     }
+    
 }
 
 function update(){
@@ -104,6 +108,9 @@ function draw(){
     pen.fillStyle = snake.body_color;
     snake.drawSnake();
     food.draw();
+    pen.font = "30px roboto";
+    pen.fillStyle = "white"
+    pen.fillText(score,450,50);
 	
 }
 function randomFood(){
@@ -142,6 +149,8 @@ function resetGame(){
     clearInterval(f);
     init();
 }
+score = 0;
+hscore = 0;
 init();
 start = document.getElementById("start").addEventListener("click",startGame);
 reset = document.getElementById("reset").addEventListener("click",resetGame);;
