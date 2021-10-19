@@ -6,7 +6,7 @@ function init(){
     state = "reset";
     hscore = Math.max(score,hscore);
     pen.font = "30px roboto"
-    pen.fillText(hscore,50,50);
+    pen.fillText(hscore,20,50);
     score = 0;
     gameOver = false;
     window.addEventListener('keydown',keyPressed);
