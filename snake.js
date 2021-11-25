@@ -1,11 +1,11 @@
 function getBodyColor(){
     var color = "";
-    if(skinStatus=="rad"){
+    if(skinStatus == "rad"){
     var colors = ["red","orange","yellow","green","blue","purple"];
     var rand = Math.floor(Math.random() * colors.length);
     color = colors[rand];
     }
-    else if(skinStatus=="default"){
+    else if(skinStatus == "default"){
         color = "white";
     }
     return color;
@@ -17,7 +17,7 @@ function getHeadColor(){
     var rand = Math.floor(Math.random() * colors.length);
     color = colors[rand];
     }
-    else if(skinStatus=="default"){
+    else if(skinStatus == "default"){
        color="#656565";
     }
     return color;
@@ -29,9 +29,11 @@ function getAppleColor(){
     color = colors[rand];
     return color;
 }
+function getSkinStatus(){
+    return skinStatus;
+}
 function init(){
-
-    skinStatus = "rad";
+    skinStatus = getSkinStatus();
     var canvas = document.getElementById("mycan");
     $w=canvas.width=500;
     $h=canvas.height=500;
@@ -177,7 +179,6 @@ function gameloop(){
 function startGame(){
     if(state!= "start"){
         state = "start";
-        
         f=setInterval(gameloop,100);
     }
     
@@ -189,7 +190,25 @@ function resetGame(){
 }
 score = 0;
 hscore = 0;
-
+skinStatus = "default";
+state = "reset";
 init();
 start = document.getElementById("start").addEventListener("click",startGame);
 reset = document.getElementById("reset").addEventListener("click",resetGame);
+
+
+defaultSkin = document.getElementById("dSkin").addEventListener("click",function(){
+    skinStatus = "default";
+    if(state == "reset"){
+        resetGame();
+    }
+});
+radSkin = document.getElementById("rSkin").addEventListener("click",function(){
+    skinStatus = "rad";
+    if(state == "reset"){
+        resetGame();
+    }
+}
+);
+
+
