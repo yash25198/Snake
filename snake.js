@@ -9,16 +9,16 @@ function getBodyColor(){
         color = "white";
     }
     else if(skinStatus == "s1"){
-        color = "magenta";
+        color = document.getElementById("s11").style.color;;
      }
      else if(skinStatus == "s2"){
-        color = document.getElementById("s2").style.color;
+        color = document.getElementById("s21").style.color;;
      }
      else if(skinStatus == "s3"){
-        color = document.getElementById("s3").style.color;
+        color = document.getElementById("s31").style.color;
      }
      else if(skinStatus == "s4"){
-        color = document.getElementById("s4").style.color;
+        color = document.getElementById("s41").style.color;
      }
     return color;
 }
@@ -228,7 +228,7 @@ radSkin = document.getElementById("rSkin").addEventListener("click",function(){
 s1 = document.getElementById("s1").addEventListener("click",function(){
     if (state == "reset"){
     m=document.getElementById("s1");
-    if(m.innerHTML == "BUY"){
+    if(m.innerHTML != "EQUIP"){
         m.innerHTML= "EQUIP"
     }
     else{
@@ -239,7 +239,7 @@ s1 = document.getElementById("s1").addEventListener("click",function(){
 s2 = document.getElementById("s2").addEventListener("click",function(){
     if (state == "reset"){
     m=document.getElementById("s2");
-    if(m.innerHTML == "BUY"){
+    if(m.innerHTML != "EQUIP"){
         m.innerHTML= "EQUIP"
     }
     else{
@@ -250,7 +250,7 @@ s2 = document.getElementById("s2").addEventListener("click",function(){
 s3 = document.getElementById("s3").addEventListener("click",function(){
     if (state == "reset"){
     m=document.getElementById("s3");
-    if(m.innerHTML == "BUY"){
+    if(m.innerHTML != "EQUIP"){
         m.innerHTML= "EQUIP"
     }
     else{
@@ -261,7 +261,7 @@ s3 = document.getElementById("s3").addEventListener("click",function(){
 s4 = document.getElementById("s4").addEventListener("click",function(){
     if (state == "reset"){
     m=document.getElementById("s4");
-    if(m.innerHTML == "BUY"){
+    if(m.innerHTML != "EQUIP"){
         m.innerHTML= "EQUIP"
     }
     else{
