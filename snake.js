@@ -184,8 +184,10 @@ function startGame(){
     
 }
 function resetGame(){
+    if(state!= "reset"){
+        clearInterval(f);
+    }
     state = "reset";
-    clearInterval(f);
     init();
 }
 score = 0;
