@@ -1,30 +1,43 @@
 function getBodyColor(){
     var color = "";
     if(skinStatus == "rad"){
-    var colors = ["red","orange","yellow","green","blue","purple"];
+    var colors = ["red","orange","blue","gold","grey"];
     var rand = Math.floor(Math.random() * colors.length);
     color = colors[rand];
     }
     else if(skinStatus == "default"){
         color = "white";
     }
+    else if(skinStatus == "s1"){
+        color = "magenta";
+     }
+     else if(skinStatus == "s2"){
+        color = document.getElementById("s2").style.color;
+     }
+     else if(skinStatus == "s3"){
+        color = document.getElementById("s3").style.color;
+     }
+     else if(skinStatus == "s4"){
+        color = document.getElementById("s4").style.color;
+     }
     return color;
 }
 function getHeadColor(){
     var color = "";
-    if(skinStatus == "rad"){
-    var colors = ["red","orange","yellow","green","blue","purple"];
+    if(skinStatus == "default"){
+        color="#656565";
+     }
+    else{
+    var colors = ["red","orange","blue","gold","grey"];
     var rand = Math.floor(Math.random() * colors.length);
     color = colors[rand];
     }
-    else if(skinStatus == "default"){
-       color="#656565";
-    }
+    
     return color;
 }
 function getAppleColor(){
     var color = "";
-    var colors = ["red","orange","yellow","green","blue","purple"];
+    var colors = ["red","orange","white","magenta","gold","grey"];
     var rand = Math.floor(Math.random() * colors.length);
     color = colors[rand];
     return color;
@@ -212,5 +225,49 @@ radSkin = document.getElementById("rSkin").addEventListener("click",function(){
     }
 }
 );
+s1 = document.getElementById("s1").addEventListener("click",function(){
+    if (state == "reset"){
+    m=document.getElementById("s1");
+    if(m.innerHTML == "BUY"){
+        m.innerHTML= "EQUIP"
+    }
+    else{
+        skinStatus = "s1";
+        init();
+    }}
+});
+s2 = document.getElementById("s2").addEventListener("click",function(){
+    if (state == "reset"){
+    m=document.getElementById("s2");
+    if(m.innerHTML == "BUY"){
+        m.innerHTML= "EQUIP"
+    }
+    else{
+        skinStatus = "s2";
+        init();
+    }}
+});
+s3 = document.getElementById("s3").addEventListener("click",function(){
+    if (state == "reset"){
+    m=document.getElementById("s3");
+    if(m.innerHTML == "BUY"){
+        m.innerHTML= "EQUIP"
+    }
+    else{
+        skinStatus = "s3";
+        init();
+    }}
+});
+s4 = document.getElementById("s4").addEventListener("click",function(){
+    if (state == "reset"){
+    m=document.getElementById("s4");
+    if(m.innerHTML == "BUY"){
+        m.innerHTML= "EQUIP"
+    }
+    else{
+        skinStatus = "s4";
+        init();
+    }}
+});
 
 
