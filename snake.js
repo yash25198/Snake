@@ -1,4 +1,37 @@
+function getBodyColor(){
+    var color = "";
+    if(skinStatus=="rad"){
+    var colors = ["red","orange","yellow","green","blue","purple"];
+    var rand = Math.floor(Math.random() * colors.length);
+    color = colors[rand];
+    }
+    else if(skinStatus=="default"){
+        color = "white";
+    }
+    return color;
+}
+function getHeadColor(){
+    var color = "";
+    if(skinStatus == "rad"){
+    var colors = ["red","orange","yellow","green","blue","purple"];
+    var rand = Math.floor(Math.random() * colors.length);
+    color = colors[rand];
+    }
+    else if(skinStatus=="default"){
+       color="#656565";
+    }
+    return color;
+}
+function getAppleColor(){
+    var color = "";
+    var colors = ["red","orange","yellow","green","blue","purple"];
+    var rand = Math.floor(Math.random() * colors.length);
+    color = colors[rand];
+    return color;
+}
 function init(){
+
+    skinStatus = "rad";
     var canvas = document.getElementById("mycan");
     $w=canvas.width=500;
     $h=canvas.height=500;
@@ -14,8 +47,10 @@ function init(){
     food = randomFood();
     snake = {
         len : 5,
-        body_color : "white",
-        head_color : "#3a3838",
+        
+        body_color : getBodyColor(),
+        head_color : getHeadColor(),
+        
         cells : [],
         direction : "right",
         createSnake:function(){
@@ -29,6 +64,9 @@ function init(){
             for(let i = 0; i < snake.cells.length;i++){
                 if(i == snake.cells.length-1){
                     pen.fillStyle = snake.head_color;
+                }
+                else{
+                    pen.fillStyle = snake.body_color;
                 }
                 pen.fillRect(this.cells[i].x * $cs,this.cells[i].y * $cs,$cs -2,$cs - 2);
             }
@@ -119,7 +157,7 @@ function randomFood(){
     food = {
         x : foodX,
         y : foodY,
-        color : "grey",
+        color : getAppleColor(),
         draw : function(){
             pen.fillStyle = this.color;
             pen.fillRect(this.x * $cs,this.y * $cs,$cs -2,$cs -2);
@@ -151,6 +189,7 @@ function resetGame(){
 }
 score = 0;
 hscore = 0;
+
 init();
 start = document.getElementById("start").addEventListener("click",startGame);
-reset = document.getElementById("reset").addEventListener("click",resetGame);;
+reset = document.getElementById("reset").addEventListener("click",resetGame);
