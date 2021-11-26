@@ -66,6 +66,16 @@
       width: auto;
 
     }
+    .buttonChange:hover:after {
+      
+      -ms-transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      transform: scale(1.05);
+      content: 'BUY';
+    }
+    .buttonChange:hover span{
+      display: none;
+    }
 
     .button:focus-visible {
       box-shadow: #F7F7F7 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
